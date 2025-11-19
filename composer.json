@@ -1,24 +1,26 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "casmo/backstage-static-site-generator",
+    "description": "Static site generator for the Backstage CMS.",
     "keywords": [
-        ":vendor_name",
+        "Mathieu de Ruiter",
         "laravel",
-        ":package_slug"
+        "backstage-static-site-generator"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/casmo/backstage-static-site-generator",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Mathieu de Ruiter",
+            "email": "mathieu@fellicht.nl",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.4",
+        "php": "^8.3",
+        "gumlet/php-image-resize": "*",
+        "illuminate/contracts": "^11.0||^12.0",
         "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^11.0||^12.0"
+        "voku/html-min": "^4.5"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
@@ -35,13 +37,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "BackstageStaticSiteGenerator\\": "src/",
+            "BackstageStaticSiteGenerator\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "BackstageStaticSiteGenerator\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,10 +65,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "BackstageStaticSiteGenerator\\BackstageStaticSiteGeneratorServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "BackstageStaticSiteGenerator": "BackstageStaticSiteGenerator\\Facades\\BackstageStaticSiteGenerator"
             }
         }
     },
