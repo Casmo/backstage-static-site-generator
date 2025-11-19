@@ -107,10 +107,10 @@ class BackstageStaticSiteGeneratorCommand extends Command
                     $path = empty($page->path) ? 'index' : $page->path;
 
                     if ($this->option('minify-html')) {
-                        $content = (new \voku\helper\HtmlMin())->minify($content); 
+                        $content = (new \voku\helper\HtmlMin)->minify($content);
                     }
-                    
-                    if (!is_dir(dirname($outputDir))) {
+
+                    if (! is_dir(dirname($outputDir))) {
                         mkdir(dirname($outputDir), 0755, true);
                     }
                     file_put_contents($outputDir, $content);
