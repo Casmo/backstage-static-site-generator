@@ -2,9 +2,9 @@
 
 namespace BackstageStaticSiteGenerator\Tests;
 
+use BackstageStaticSiteGenerator\BackstageStaticSiteGeneratorServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use BackstageStaticSiteGenerator\BackstageStaticSiteGeneratorServiceProvider;
 
 class TestCase extends Orchestra
 {

@@ -2,9 +2,9 @@
 
 namespace BackstageStaticSiteGenerator;
 
+use BackstageStaticSiteGenerator\Commands\BackstageStaticSiteGeneratorCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use BackstageStaticSiteGenerator\Commands\BackstageStaticSiteGeneratorCommand;
 
 class BackstageStaticSiteGeneratorServiceProvider extends PackageServiceProvider
 {
