@@ -18,8 +18,10 @@ composer require casmo/backstage-static-site-generator
 You can generate the static site by running the following command:
 
 ```bash
-backstage:generate-static-site {--output=public/static/} {--optimize-images=true}
+backstage:generate-static-site {--output=public/static/} {--optimize-images=true} {--minify-html=true}
 ```
+
+Optimize images will resize images to max 1024 and quality to 60. Minify html will minify the html.
 
 ## Changelog
 

@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class BackstageStaticSiteGeneratorCommand extends Command
 {
-    public $signature = 'backstage:generate-static-site {--output=public/static/} {--optimize-images=true}';
+    public $signature = 'backstage:generate-static-site {--output=public/static/} {--optimize-images=true} {--minify-html=true}';
 
     public $description = 'Generate a static version of the production site';
 
@@ -106,7 +106,9 @@ class BackstageStaticSiteGeneratorCommand extends Command
 
                     $path = empty($page->path) ? 'index' : $page->path;
 
-                    $content = (new \voku\helper\HtmlMin())->minify($content); 
+                    if ($this->option('minify-html')) {
+                        $content = (new \voku\helper\HtmlMin())->minify($content); 
+                    }
                     
                     if (!is_dir(dirname($outputDir))) {
                         mkdir(dirname($outputDir), 0755, true);
