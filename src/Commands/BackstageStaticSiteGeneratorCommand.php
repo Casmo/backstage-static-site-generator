@@ -15,6 +15,7 @@ class BackstageStaticSiteGeneratorCommand extends Command
      */
     public function handle()
     {
+        config(['app.debug' => false, 'boost.enabled' => false]);
         $this->info('Fetching public content...');
 
         $domains = \Backstage\Models\Domain::with('site.contents')
@@ -40,6 +41,8 @@ class BackstageStaticSiteGeneratorCommand extends Command
         foreach ($domains as $domain) {
 
             $this->info('Running npm build...');
+
+            config(['app.env' => 'production']);
             exec('npm run build');
             \Illuminate\Support\Facades\File::copyDirectory('./public/build', $this->option('output').$domain->name.'/build');
 
@@ -80,6 +83,7 @@ class BackstageStaticSiteGeneratorCommand extends Command
 
                 return 'https://'.$url.'.html';
             });
+            config(['app.env' => 'local']);
 
             foreach ($domain->site->contents as $page) {
 
